@@ -1,0 +1,15 @@
+<h3>
+    <!--sintak dibawah ini untuk kembali ke menu utama atau sebelumnya-->
+
+    <a href=" {% url 'tua' %}">kembali</a>
+</h3>
+<h4 >
+	{% if user.is_authenticated %}
+		<span>hi {{user.username}}</span><br>
+
+		<span><a href="{% url 'keluar' %}"> KELUAR BANG</a></span>
+	   
+	{% else%}
+		<span><a href="{% url 'masuk' %}"></a></span>
+	{% endif %}
+</h4>

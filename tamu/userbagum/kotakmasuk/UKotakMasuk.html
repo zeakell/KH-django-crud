@@ -1,0 +1,45 @@
+{%  extends 'userbagum/main.html' %}
+{% load static %}
+
+
+
+ {% block content %}
+     <!-- partial -->
+     <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h4 class="font-weight-bold mb-0"><span>Hi Mr. {{user.first_name}} {{user.last_name}} </span></h4>
+                </div>
+
+              </div>
+            </div>
+          </div> 
+                      
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="card card-body">
+                <form method = 'POST' enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <table class = 'w-50 table table-light' align="center">
+                    {% for field in update_data1 %}
+                    <tr>
+                      <div class="col-md-5">
+                        <th>{{field.label}}</th>
+                      <div class="col-md-5">
+                      <td>{{ field }}</td>
+                    </tr> 
+                    {% endfor %}
+                  </table>
+                  <button type="submit" class="btn btn-lg btn-warning">Submit</button>
+                </form>
+
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+{% endblock %}

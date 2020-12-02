@@ -1,0 +1,50 @@
+{% load static %}
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>USER | Bagian Umum</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'userbagum/vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'userbagum/vendors/Font-Awesome-master/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'userbagum/vendors/base/vendor.bundle.base.css' %}">
+  
+
+  
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'userbagum/css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{% static 'userbagum/images/Lambang_TNI_AD.png' %}" />
+</head>
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+    {%  include 'userbagum/navbar.html' %}
+
+    {% block content %}
+  
+ 
+	{% endblock %}
+    </div>
+	
+</body>
+<!-- plugins:js -->
+<script src="{% static 'userbagum/vendors/base/vendor.bundle.base.js' %}"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<script src="{% static 'userbagum/vendors/chart.js/Chart.min.js' %}"></script>
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="{% static 'userbagum/js/off-canvas.js' %}"></script>
+<script src="{% static 'userbagum/js/hoverable-collapse.js' %}"></script>
+<script src="{% static 'userbagum/js/template.js' %}"></script>
+<script src="{% static 'userbagum/js/todolist.js' %}"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="{% static 'userbagum/js/dashboard.js' %}"></script>
+<!-- End custom js for this page-->
+</html>

@@ -1,0 +1,67 @@
+{%  extends 'userbagum/main.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card position-relative">
+                        <div class="card-body">
+                            <h4 class="card-title"><span>Hi Mr. {{user.first_name}} {{user.last_name}} </span></h4>
+                            <h3 class="title" align="center">Buat Surat Baru</h3>
+                            <form  action="kotakmasuk22" enctype="multipart/form-data" method="POST">
+                                <div class="container">
+                                    {% csrf_token %}
+                                    <label for="nomor_surat">Nomor Surat:</label>
+                                    <input type="text" name="nomor_surat" id="nomor_surat" class="form-control" />
+                        
+                                    <br>
+                                    <label>Tanggal:</label>
+                                    <input type="date" name="tanggal_surat" id="tanggal_surat" class="form-control" />
+                                    
+                                    <br>
+                                    <label for="kt">Kategori</label>
+                                    <select class="form-control" name="kategori" required>
+                                        <option value=""></option>
+                                        <option value="Biasa">Biasa</option>
+                                        <option value="Segera">Segera</option>
+                                        <option value="Mendesak">Mendesak</option>
+                                    </select>
+                        
+                                    <br>
+                                        <label for="kl">Klasifikasi</label>
+                                            <select class="form-control" name="klasifikasi" required>
+                                                <option value=""></option>
+                                                <option value="Biasa">Biasa</option>
+                                                <option value="Express">Express</option>
+                                                <option value="Biasa">Kilat</option>
+                                            </select>
+                                    <br>        
+                                    <label>Pengirim :</label>
+                                    <input type="text" name="pengirim" id="pengirim" class="form-control"/>
+
+                                    <br>
+                                    <label>Perihal:</label>
+                                    <textarea type="text" name="perihal" rows="10" id="perihal" class="form-control"></textarea>
+                        
+                                    <br>
+                                    <label>Attachment:</label>
+                                    <input type="file" name="attachment" id="attachment" class="form-control"/>
+                                
+                                    <br>
+                                    <div align="center">
+                                        <a href="{% url 'shkotakmasuk' %}" class="btn btn-danger">kembali </a>
+                                        <button type="submit" class="btn btn-success" name="submit">Tambahkan</button>
+                                    </div>
+                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

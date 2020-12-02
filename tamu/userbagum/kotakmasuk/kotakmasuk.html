@@ -1,0 +1,61 @@
+{%  extends 'userbagum/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card position-relative">
+          <div class="card-body">
+            <h4 class="card-title"><span>Hi Mr. {{user.first_name}} {{user.last_name}} </span></h4>
+            <h3> Data Kotak Masuk</h3>
+            <a href="{% url 'tmbhsurat' %}" class="btn btn-primary">Buat Surat </a>
+          </div>
+          
+            <div class="table-responsive pt-3">
+              <table class="table table-striped">
+                <thead>
+                  <tr align="center">
+                      <th scope="col">Nomor Surat</th>
+                      <th scope="col">Tanggal Surat</th> 
+                      <th scope="col">Kategori</th>
+                      <th scope="col">Klasifikasi</th>
+                      <th scope="col">Pengirim</th>
+                      <th scope="col">Perihal</th>
+                      <th scope="col">File</th>
+                      <th scope="col">Disposisi</th>
+                      <th colspan ="2"  scope="col" > Pengaturan  Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr> 
+                      {% for upload in upload_form %}
+                      <tr>
+                        <td>{{upload.nomor_surat}}</td>
+                        <td>{{upload.tanggal_surat}}</td>
+                        <td>{{upload.kategori}}</td>
+                        <td>{{upload.klasifikasi}}</td>
+                        <td>{{upload.pengirim}}</td>
+                        <td>{{upload.perihal}}</td>
+                        <td><a href="{{ upload.attachment.url }}" target="_blank">Download</a></td>
+                        <td><a class="badge badge-warning" href="{% url 'updatekotakmasuk' upload.nomor_surat %}">Belom</a></td>
+                        <td><a class="btn  btn-info" href="{% url 'updatekotakmasuk' upload.nomor_surat %}">Ubah</a></td>
+                        <td><a href="delete/{{upload.id}}" class="btn btn-danger" id = '{{upload.id}}'>Hapus</a></td>
+        
+                      </tr>
+                      {% endfor %}  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
+          
+{% endblock %}
+
+ 
+

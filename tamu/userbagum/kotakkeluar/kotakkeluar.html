@@ -1,0 +1,60 @@
+{%  extends 'userbagum/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card position-relative">
+          <div class="card-body">
+            <h4 class="card-title"><span>Hi Mr. {{user.first_name}} {{user.last_name}} </span></h4>
+            <h3> Data Kotak Keluar</h3>
+           <a href="{% url 'tmbhsuratkeluar' %}" class="btn btn-primary">Buat Surat </a>
+          </div>
+          
+            <div class="table-responsive pt-3">
+              <table class="table table-striped">
+                <thead>
+                  <tr align="center">
+                      <th scope="col">Nomor Surat</th>
+                      <th scope="col">Tanggal Surat</th> 
+                      <th scope="col">Kategori</th>
+                      <th scope="col">Klasifikasi</th>
+                      <th scope="col">Tujuan</th>
+                      <th scope="col">Tembusan</th>
+                      <th scope="col">Perihal</th>
+                      <th scope="col">File</th>
+                      <th colspan ="2"  scope="col" > Pengaturan  Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr> 
+                      {% for shdata in tmpldata %}
+                      <tr>
+                        <td>{{shdata.Nomor_surat}}</td>
+                        <td>{{shdata.Tanggal_surat}}</td>
+                        <td>{{shdata.Kategori}}</td>
+                        <td>{{shdata.Klasifikasi}}</td>
+                        <td>{{shdata.Tujuan}}</td>
+                        <td>{{shdata.Tembusan}}</td>
+                        <td>{{shdata.Perihal}}</td>
+                        <td><a href="{{ shdata.Attachment.url }}" target="_blank">Unduh</a></td>
+                        <td><a class="btn  btn-info" href="{% url 'updatekotakkeluar' shdata.Nomor_surat %}">Ubah</a></td>
+                        <td><a class="btn  btn-danger" href="{% url 'Deletesuratkeluar' shdata.Nomor_surat %}">Ubah</a></td>
+                      </tr>
+                      {% endfor %}  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
+          
+{% endblock %}
+
+ 
+
